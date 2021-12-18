@@ -59,3 +59,19 @@ alert(salida2);
 
 let salida3 = `La ${birra} se la tomó toda ${nombreIngresado}`;
 alert(salida3);
+
+//Ejemplo de Parseo
+let numero = "1000"; //está declarado como texto
+console.log(parseInt(numero) + 1); //parseInt convierte el texto a un número entero
+
+let flotante = "1000.5"; //está declarado como texto
+console.log(parseFloat(flotante) + 1); //parseFloat convierte el texto a un número con decimales.
+
+let numero2 = 30;
+console.log(numero2.toString());
+console.log(typeof numero2);
+numero2 = numero2.toString(); //convertimos el numero a string
+console.log(typeof numero2);
+
+let objeto = {};
+console.log(typeof objeto);
