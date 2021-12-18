@@ -51,8 +51,11 @@ alert("Hola gente");
 alert(nombre);
 
 //Ejemplo de script
-let nombre = prompt("Ingrese su nombre");
-let salida = nombre + " " + " Apellido";
-let salida2 = `Su -> ${nombre} apellido`;
+let birra = prompt("Ingrese su birra favorita");
+let salida = "La" + " " + birra + " es la mejor birra";
+let salida2 = `La ${birra} es la mejorrrrr birra ok???`;
 alert(salida);
 alert(salida2);
+
+let salida3 = `La ${birra} se la tomó toda ${nombreIngresado}`;
+alert(salida3);
