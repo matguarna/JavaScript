@@ -19,9 +19,11 @@
             ingresarApellido +
             "\nSerá categorizado según su edad"
         );
-        let ingresarEdad = prompt(
+        let ingresarEdad = parseInt(prompt(
           "Por favor ingrese su edad para indicarle su categoría"
-        );
+        )); if (isNaN(ingresarEdad)){
+          alert("Por favor ingrese un numero para indicar su edad");
+        }
         if (ingresarEdad <= 12) {
           alert(
             "Estimado " +

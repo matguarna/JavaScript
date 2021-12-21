@@ -117,3 +117,10 @@ if (!!!!!!tempA) {
 
 //Condiciones compuestas con || y && en el html
 
+//length
+
+let a8 = "12345678";
+
+if (a8.length == 8) {
+  console.log("Tiene 8 caracteres");
+}
