@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <script src="./index.js">
+  </head>
+  <body>
+    <script>
+      //Condiciones compuestas con || en el html
+      let nombreIngresado = prompt("Ingresar nombre");
+      let apellidoIngresado = prompt("Ingresar apellido");
 
+      if (nombreIngresado == "ANA" || nombreIngresado == "ana") {
+        console.log("El nombre ingresado es Ana");
+      } else {
+        console.log("El nombre ingresado no es Ana");
+      }
+
+      //Condiciones compuestas con || y && en el html
+      let nombreIngresado2 = prompt("Ingrese nombre");
+
+      if (
+        nombreIngresado2 != "" &&
+        (nombreIngresado2 == "EMA" || nombreIngresado2 == "ema")
+      ) {
+        alert("Hola Ema");
+      } else {
+        alert("Error: Ingresa un nombre valido");
+      }
+
+      //otro ejemplo
+      let nombreIngresado3 = prompt("Ingrese nombre");
+      let apellidoIngresado3 = prompt("Ingrese apellido");
+
+      if (nombreIngresado3 != "" && apellidoIngresado3 != "") {
+        alert(
+          "Nombre: " + nombreIngresado3 + "\nApellido: " + apellidoIngresado3
+        );
+      } else {
+        alert("Error: Ingresar nombre y apellido");
+      }
     </script>
-</body>
+    <script src="./index.js"></script>
+  </body>
 </html>
-
