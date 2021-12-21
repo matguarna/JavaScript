@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let ingresarNombre = prompt("Ingrese su nombre");
+      let ingresarApellido = prompt("Ingrese su apellido");
+
+      if (ingresarNombre != "" && ingresarApellido != "") {
+        alert(
+          "Hola " +
+            ingresarNombre +
+            " " +
+            ingresarApellido +
+            "\nSerá categorizado según su edad"
+        );
+        let ingresarEdad = prompt(
+          "Por favor ingrese su edad para indicarle su categoría"
+        );
+        if (ingresarEdad <= 12) {
+          alert(
+            "Estimado " +
+              ingresarNombre +
+              " " +
+              ingresarApellido +
+              ", usted es un niño! 😹"
+          );
+        } else if (ingresarEdad > 13 && ingresarEdad <= 18) {
+          alert(
+            "Estimado " +
+              ingresarNombre +
+              " " +
+              ingresarApellido +
+              ", usted es un adolescente"
+          );
+        } else if (ingresarEdad > 18 && ingresarEdad <= 65) {
+          alert(
+            "Estimado " +
+              ingresarNombre +
+              " " +
+              ingresarApellido +
+              ", usted es un adulto"
+          );
+        } else if (ingresarEdad > 65) {
+          alert(
+            "Estimado " +
+              ingresarNombre +
+              " " +
+              ingresarApellido +
+              ", usted es un jubilado"
+          );
+        }
+      } else {
+        alert("Error: Ingrese nombre y apellido");
+      }
+    </script>
+  </body>
+</html>
