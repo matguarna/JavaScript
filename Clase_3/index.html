@@ -8,13 +8,24 @@
   </head>
   <body>
     <script>
-      let entrada = prompt("Ingrese un dato");
+      //let entrada = prompt("Ingrese un dato");
       /*while (entrada != "ESC") {
         alert(`Valor ingresado = ${entrada}`);
         entrada = prompt("Ingresa un datito");
       }*/
 
-      while (entrada != "ESC") {
+      let ingresarNumero = parseInt(prompt("Ingrese un numero"));
+
+      for (let i = 1; i <= 10; i++) {
+        let resultado = ingresarNumero * i;
+        alert(`${ingresarNumero} x ${i} = ${resultado}`);
+        if (i == 10) {
+          alert("Adios");
+        }
+      }
+
+      While(entrada != "ESC");
+      {
         switch (entrada) {
           case "Alex":
             alert("Valor ingresado = " + entrada);

@@ -2,6 +2,10 @@ for (let index = 0; index < 10; index++) {
   console.log(`Index --> ${index}`);
 }
 
+for (let pepe = 0; pepe <= 10; pepe++) {
+  console.log(pepe);
+}
+
 //palabra clave ;
 // definir variable mediante la cual se pueda iterar, editar su contenido; condicion que se tiene que dar para que la ejecucion sea satisfactoria (menor a 10); se define la accion de actualizacion, en este caso le suma 1 con el ++, es hacer la suma de la misma variable + 1.
 
