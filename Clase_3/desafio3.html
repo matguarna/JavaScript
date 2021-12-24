@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let suich = prompt("Ingrese algo");
+
+      while (suich != "ESC") {
+        switch (suich) {
+          case "asd":
+            alert(`${suich} es asd`);
+            break;
+          case "salame":
+            alert(`${suich} es salame`);
+            break;
+          case "juan":
+            alert(`${suich} es juan`);
+            break;
+          case "pedro":
+            alert(`${suich} es pedro`);
+            break;
+          default:
+            alert("Perdiste chauu");
+            break;
+        }
+        suich = prompt("Ingresa algo mas piola");
+      }
+    </script>
+    <script src="./index.js"></script>
+  </body>
+</html>
