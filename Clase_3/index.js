@@ -40,3 +40,31 @@ switch (numero) {
     console.log(`numero es igual a = ${numero}`);
     break;
 }
+
+//WHILE
+let repetir = true;
+
+while (repetir) {
+  console.log("Repiteeee");
+  break;
+}
+
+//Otro ejemplo while 
+
+let wEntrada = prompt("Ingrese un dato");
+
+while (wEntrada !="ESC"){
+  alert("El usuario ingresó " + wEntrada);
+  //Volvemos a solicitar otro dato, hasta que ingrese ESC para finalizar
+  wEntrada = prompt("Ingrese otro dato");
+}
+
+
+
+
+
+
+
+
+
+
