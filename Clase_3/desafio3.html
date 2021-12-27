@@ -8,29 +8,41 @@
   </head>
   <body>
     <script>
-      let suich = prompt("Ingrese algo");
-
+      /*let suich = prompt("Ingrese algo");
       while (suich != "ESC") {
         switch (suich) {
           case "asd":
-            alert(`${suich} es asd`);
+            alert(`Ingresaste ${suich}`);
             break;
           case "salame":
-            alert(`${suich} es salame`);
+            alert(`Ingresaste ${suich}`);
             break;
           case "juan":
-            alert(`${suich} es juan`);
+            alert(`Ingresaste ${suich}`);
             break;
           case "pedro":
-            alert(`${suich} es pedro`);
+            alert(`Ingresaste ${suich}`);
             break;
           default:
-            alert("Perdiste chauu");
+            alert("No ingresaste nada copado, chauu");
             break;
         }
-        suich = prompt("Ingresa algo mas piola");
+        suich = prompt("Ingresa algo masss");
+      }*/
+
+      let ingresarNacimiento = parseInt(prompt("Ingrese su año de nacimiento"));
+
+      for (let i = 0; i <= 100; i++) {
+        /*if (isNaN(ingresarNacimiento)){
+          ingresarNacimiento = parseInt(prompt("Error. Ingrese su año de nacimiento"));
+        }*/
+        console.log(`En el año ${ingresarNacimiento} tendrias ${i} años`);
+        if (i == 100) {
+          console.log("Cumpliste 100 años! adios");
+        }
+        ingresarNacimiento = ingresarNacimiento + 1;
       }
     </script>
-    <script src="./index.js"></script>
+    <script></script>
   </body>
 </html>
