@@ -26,7 +26,6 @@ conParametros(10, "alex");
 function sumar(a, b) {
   console.log(a + b);
   return a + b;
-  console.log(a + b);
 }
 sumar(10, 10);
 
@@ -36,6 +35,16 @@ function mostrar(valor) {
   console.log(valor);
 }
 mostrar(resultado);
+
+//
+function sumar(a, b) {
+  if (a > 10) {
+    return "a es Mayor";
+  } else {
+    return "a es Menor";
+  }
+}
+//
 
 function calculadora(a, b, operador) {
   let response = 0;
@@ -74,7 +83,6 @@ function test(a) {
 
 console.log(entrada);
 test(entrada);
-console.log(entrada);
 
 let global = "Hola";
 function testt() {
@@ -103,9 +111,10 @@ console.log(sumar2(10, 11));
 const sumar3 = (a, b) => {
   return a + b;
 };
-const restar3 = (a, b) => {
-  return a - b;
-};
+
+//Tambien funciona sin las {} ni return
+const restar3 = (a, b) => a - b;
+
 console.log(sumar3(5, 10));
 console.log(restar3(10, 11));
 
