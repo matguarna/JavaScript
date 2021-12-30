@@ -1,12 +1,3 @@
-resultado = 10;
-
-function mostrar(valor) {
-  console.log(valor);
-}
-mostrar(resultado);
-
-///////
-
 const asignarTurno = function (fecha, hora, nombre, edad, tratamiento) {
   console.log(`La fecha ingresada es: ${fecha}`);
   console.log(`La hora ingresada es: ${hora}`);
@@ -30,3 +21,19 @@ while (turno != "SALIR") {
     `La fecha ingresada es: ${fechaT} \nLa hora ingresada es: ${horaT} \nEl nombre ingresado es: ${nombreT} \nLa edad ingresada es: ${edadT} \nEl tratamiento ingresado es: ${tratamientoT} \n\nSi los datos son correctos, escriba SALIR`
   );
 }
+
+let costoTratamiento = prompt("Para saber de cuanto es su descuento, ingrese el costo del tratamiento indicado por el profesional");
+
+let metodoPago = prompt("Por favor ingrese el metodo de pago ingresando EFECTIVO o TARJETA");
+
+const descuento = function (costo, metodo) {
+  let promo = 0;
+  if (metodoPago == "EFECTIVO") {
+    promo = costoTratamiento * 0.8;
+  } else if (metodoPago == "TARJETA") {
+    promo = costoTratamiento * 0.9;
+  }
+  console.log(`El costo de su tratamiento con descuento en ${metodoPago} es: $${promo}`);
+};
+
+descuento(costoTratamiento, metodoPago);
