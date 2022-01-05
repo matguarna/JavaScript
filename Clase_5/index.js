@@ -1,3 +1,15 @@
+//Objeto = coleccion de datos, atributos
+const persona1 = { nombre: "Homero", edad: 39, calle: "Av. Siempreviva 742" };
+console.log(persona1.nombre);
+console.log(persona1["nombre"]);
+
+persona1.edad = 50;
+console.log(persona1.edad);
+persona1.nombre = "Pedrito";
+console.log(persona1.nombre);
+persona1["calle"] = "Bolivar 1110";
+console.log(persona1.calle);
+
 //Funcion constructora de objetos
 function Persona(nombre, edad, calle) {
   this.nombre = nombre;
