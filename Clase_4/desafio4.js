@@ -22,7 +22,9 @@ while (turno != "SALIR") {
   );
 }
 
-let costoTratamiento = prompt("Para saber de cuanto es su descuento, ingrese el costo del tratamiento indicado por el profesional");
+let costoTratamiento = prompt(
+  "Para saber de cuanto es su descuento, ingrese el costo del tratamiento indicado por el profesional"
+);
 
 let metodoPago = prompt("Por favor ingrese el metodo de pago ingresando EFECTIVO o TARJETA");
 
@@ -33,7 +35,7 @@ const descuento = function (costo, metodo) {
   } else if (metodoPago == "TARJETA") {
     promo = costoTratamiento * 0.9;
   }
-  console.log(`El costo de su tratamiento con descuento en ${metodoPago} es: $${promo}`);
+  alert(`El costo de su tratamiento con descuento en ${metodoPago} es: $${promo}`);
 };
 
 descuento(costoTratamiento, metodoPago);

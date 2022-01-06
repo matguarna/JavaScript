@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        margin-bottom: 15px;
+      }
+      #pelota {
+        width: 200px;
+        height: 200px;
+        border-radius: 100%;
+        background-color: red;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <form id="reserva">
+        <label for="name">Nombre:</label><br />
+        <input type="text" id="name" name="name" value="" /><br />
+
+        <label for="fecha">Fecha:</label><br />
+        <input type="date" id="fecha" name="fecha" /><br />
+
+        <input type="submit" value="reservar" />
+      </form>
+    </section>
+    <button onclick="prenderLucecitas()">QUE SE HAGA LA NAVIDAD CARAJO</button>
+    <button onclick="tiraPedo()">Refrescame</button>
+    <div id="pelota"></div>
+    <script>
+      const pelota = document.getElementById("pelota");
+
+      function tiraPedo() {
+        new Audio("https://www.soundjay.com/human/sounds/fart-08.mp3").play();
+      }
+
+      function prenderLucecitas() {
+        pelota.style.opacity = 1;
+        setInterval(function () {
+          if (pelota.style.background === "red") {
+            pelota.style.background = "blue";
+          } else {
+            pelota.style.background = "red";
+          }
+        }, 200);
+      }
+    </script>
+    <script src="./app.js"></script>
+  </body>
+</html>
