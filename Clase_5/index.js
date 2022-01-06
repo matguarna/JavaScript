@@ -18,20 +18,27 @@ function Persona(nombre, edad, calle) {
 }
 
 Persona.edad = 25;
-
 console.log(Persona.edad);
+
+const persona1 = new Persona("Homero", 39, "Av. Siempreviva 742");
+const persona2 = new Persona("Marge", 36, "Av. Siempreviva 742");
+
+console.log(persona1.nombre);
+console.log(persona2.nombre);
 
 //Instanciar el objeto
 Persona2 = new Persona("Juan", 25, "Av bobo");
-
 console.log(Persona2.nombre);
 
-const Persona3 = new Persona({ nombre: "Matias", edad: 28, calle: Bolivar });
+const Persona3 = new Persona({ nombre: "Matias", edad: 28, calle: "Bolivar" });
+console.log(Persona3);
 
-console.log(Persona3.nombre);
+
+
+
+
 
 //Clases
-
 class Pais {
   constructor(nombre) {
     this.nombre = nombre;
