@@ -17,14 +17,15 @@ console.log(persona1.calle);
 //   this.calle = calle;
 // }
 
-
-
 /** Clase */
 class Persona {
   constructor(nombre, edad, calle) {
     this.nombre = nombre;
     this.edad = edad;
     this.calle = calle;
+    this.getName = () => {
+      console.log(`${nombre}`);
+    };
   }
 }
 
@@ -37,20 +38,18 @@ const mat = {
   calle: "tu vieja",
 };
 
-const fruits = ["Banana", "Orange", "Apple", "Mango"];
-
 const persona1 = new Persona("Homero", 39, "Av. Siempreviva 742");
 const persona2 = new Persona("Marge", 36, "Av. Siempreviva 742");
 
-console.log(persona1.nombre);
-console.log(persona2.nombre);
+//console.log(persona1.nombre);
+//console.log(persona2.nombre);
 
 // //Instanciar el objeto
 Persona2 = new Persona("Juan", 25, "Av bobo");
-console.log(Persona2.nombre);
+//console.log(Persona2.nombre);
 
 const Persona3 = new Persona({ nombre: "Matias", edad: 28, calle: "Bolivar" });
-console.log(Persona3);
+//console.log(Persona3);
 
 function Persona5(literal) {
   this.nombre = literal.nombre;
@@ -58,10 +57,35 @@ function Persona5(literal) {
   this.calle = literal.calle;
 }
 
+////Metodos
+function Persona6(nombre, apellido, edad, calle) {
+  this.nombre = nombre;
+  this.apellido = apellido;
+  this.edad = edad;
+  this.calle = calle;
+  this.getFullName = () => {
+    console.log(`${nombre} ${apellido}`);
+  };
+}
+
+const persona7 = new Persona6("Matias", "Guarna", 28, "Av. asd");
+persona7.getFullName();
+
+///IN
+console.log("nombre" in persona7);
+
+///FOR...IN
+for (const propiedad in persona7) {
+  console.log(persona7[propiedad]);
+}
+
 //Clases
-class Pais {
-  constructor(nombre) {
-    this.nombre = nombre;
+const Pais = require("./Pais.js"); //Clase importada desde Pais.js
+
+class InfoBancaria {
+  constructor(banco, cci) {
+    this.banco = banco;
+    this.cci = cci;
   }
 }
 
@@ -79,7 +103,19 @@ class CoderHouse {
     this.alumnos = alumnos;
     this.cursos = cursos;
   }
+  getCountAlumnos() {
+    console.log(`Numero de alumnos totales = ${this.alumnos.length}`);
+  }
 }
 
-const alumno1 = new Alumno("JavaScript", "asd");
-console.log(alumno1);
+const alumno1 = new Alumno("JavaScript", "asd", "Argentina", "CBU");
+const persona8 = new Persona("Julian", 28, "Av Jujuy 30");
+const pais1 = new Pais("Argentina");
+const alumno2 = new Alumno("Desarrollo Web", persona8, pais1, {}); //infoBancaria se deja como objeto vacio con las llaves vacias {}
+console.log(alumno2);
+
+//Acceder a un atributo o metodo en especifico, desde informacion puede acceder a los metodos de persona, porque el parametro "informacion" es "persona8"
+alumno2.informacion.getName();
+
+const coderHouse = new CoderHouse([alumno2], ["React"]);
+coderHouse.getCountAlumnos();
