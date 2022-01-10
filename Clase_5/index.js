@@ -66,6 +66,7 @@ function Persona6(nombre, apellido, edad, calle) {
   this.getFullName = () => {
     console.log(`${nombre} ${apellido}`);
   };
+  //this.getInputName = () => {this.nombre = prompt("Ingresa un nombre")}
 }
 
 const persona7 = new Persona6("Matias", "Guarna", 28, "Av. asd");
@@ -116,6 +117,8 @@ console.log(alumno2);
 
 //Acceder a un atributo o metodo en especifico, desde informacion puede acceder a los metodos de persona, porque el parametro "informacion" es "persona8"
 alumno2.informacion.getName();
+//Otra forma de acceder
+console.log(Object.keys(persona8));
 
 const coderHouse = new CoderHouse([alumno2], ["React"]);
 coderHouse.getCountAlumnos();
