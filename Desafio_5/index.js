@@ -21,36 +21,51 @@ class Turno {
 }
 
 class Paciente {
-  constructor(nombre, edad, telefono) {
+  constructor(nombre, edad, telefono, tratamiento, turno, profesionalTurno) {
     this.nombre = nombre;
     this.edad = edad;
     this.telefono = telefono;
+    this.tratamiento = tratamiento;
+    this.turno = turno;
+    this.profesionalTurno = profesionalTurno;
   }
-  elegirProfesional = (profSelect, profesionalTurno) => {
-    let profesionalTurno;
+  elegirProfesional = (profSelect) => {
     profSelect = prompt("Si desea elegir un profesional ingrese: OK");
     {
       if (profSelect == "OK") {
-        profesionalTurno = prompt("Elija el profesional: Majo, Aye o Lucas");
+        //console.log("Elija un profesional: Majo, Aye o Lucas.");
+        switch ((this.profesionalTurno = prompt("Elija un profesional: Majo, Aye o Lucas."))) {
+          case "Majo":
+            this.profesionalTurno = "Majo";
+            break;
+          case "Aye":
+            this.profesionalTurno = "Aye";
+            break;
+          case "Lucas":
+            this.profesionalTurno = "Lucas";
+            break;
+          default:
+            this.profesionalTurno = "Sin preferencia";
+            break;
+        }
       } else {
-        profesionalTurno = "Sin preferencia";
+        this.profesionalTurno = "Sin preferencia";
       }
     }
   };
 }
 
-class Tratamiento {
-  constructor(tipoTratamiento) {
-    this.tipoTratamiento = tipoTratamiento;
+class Profesional {
+  constructor(nombre, especialidad, matricula) {
+    this.nombre = nombre;
+    this.especialidad = especialidad;
+    this.matricula = matricula;
   }
 }
 
-class Profesional {
-  constructor(nombre, especialidad) {
-    this.nombre = nombre;
-    this.especialidad = especialidad;
-  }
-}
+const Majo = new Profesional("Maria Jose", "Estética", "M.N.123456");
+const Aye = new Profesional("Ayelen", "Ortodoncia", "M.N.654321");
+const Lucas = new Profesional("Lucas", "Endodoncia", "M.N.987654");
 
 console.log("Bienvenido, ingrese el turno deseado");
 
@@ -61,9 +76,13 @@ const paciente1 = new Paciente();
 paciente1.nombre = prompt("Ingrese su nombre");
 paciente1.edad = prompt("Ingrese su edad");
 paciente1.telefono = prompt("Ingrese su telefono");
+paciente1.tratamiento = prompt("Ingrese el tipo de tratamiento que desea realizarse");
+
+turnito.asignarTurno();
+paciente1.turno = turnito;
 
 paciente1.elegirProfesional();
-turnito.asignarTurno();
 
 console.log(`Estimado ${paciente1.nombre}. Su turno quedó reservado para el dia ${turnito.fecha} a las ${turnito.hora}.
-Profesional: ${paciente1.profesionalTurno}`);
+Tratamiento: ${paciente1.tratamiento}.
+Profesional: ${paciente1.profesionalTurno}.`);
