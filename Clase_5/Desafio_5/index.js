@@ -32,16 +32,16 @@ class Paciente {
   elegirProfesional = (profSelect) => {
     profSelect = prompt("Si desea elegir un profesional ingrese: OK");
     {
-      if (profSelect == "OK") {
-        //console.log("Elija un profesional: Majo, Aye o Lucas.");
-        switch ((this.profesionalTurno = prompt("Elija un profesional: Majo, Aye o Lucas."))) {
-          case "Majo":
+      if (profSelect.toUpperCase() == "OK") {
+        this.profesionalTurno = prompt("Elija un profesional: Majo, Aye o Lucas.");
+        switch (this.profesionalTurno.toLowerCase()) {
+          case "majo":
             this.profesionalTurno = "Majo";
             break;
-          case "Aye":
+          case "aye":
             this.profesionalTurno = "Aye";
             break;
-          case "Lucas":
+          case "lucas":
             this.profesionalTurno = "Lucas";
             break;
           default:
@@ -86,3 +86,4 @@ paciente1.elegirProfesional();
 console.log(`Estimado ${paciente1.nombre}. Su turno quedó reservado para el dia ${turnito.fecha} a las ${turnito.hora}.
 Tratamiento: ${paciente1.tratamiento}.
 Profesional: ${paciente1.profesionalTurno}.`);
+
