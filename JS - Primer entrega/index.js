@@ -1,6 +1,5 @@
 //const Turno = require("./Turno");
 //const Profesional = require("./Profesional");
-
 //import { Profesional } from "./Profesional.js";
 
 class Turno {
@@ -101,7 +100,6 @@ const turnito4 = { fecha: "30/02", hora: "20:30", nombre: "Ricardo", profesional
 const turnos = [];
 turnos.push(turnito2, turnito3, turnito4);
 turnos.push(turnito);
-//turnos.push(turnito3, turnito4);
 
 const mostrarTurnosAsignados = () => {
   const turnosOrdenadosFecha = turnos.sort((a, b) => {
@@ -139,10 +137,11 @@ const filtrarTurnosProfesional = (profesionalTurno) => {
         break;
       default:
         profesionalTurno = "Profesional no encontrado";
-        break;
+        return console.log("Error: Profesional no encontrado");
     }
   } else {
     profesionalTurno = "Profesional no encontrado";
+    return console.log("Error: Profesional no encontrado");
   }
 
   const turnosFiltradosProf = turnos.filter((element) => element.profesionalTurno == profesionalTurno);
