@@ -155,7 +155,7 @@ const lengths = nombres3.map((nombre) => nombre.length + " carácteres");
 console.log(lengths);
 
 //ordenar lista
-const listaDesordenada = [{ id: 5 }, { id: 8 }, { id: 1 }, { id: 3 }, { id: 9 }];
+const listaDesordenada = [{ id: "20/01" }, { id: "10/01" }, { id: "15/02" }, { id: "01/02" }, { id: "01/01" }];
 console.log(listaDesordenada);
 
 const ordenarLista = listaDesordenada.sort((a, b) => {
