@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        .contenedor {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .person-item {
+            color: blue;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            margin: 1%;
+            box-shadow: 1px 1px 5px 1px #000;
+            width: 300px;
+            height: 500px;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Personas</h1>
+    <input placeholder="Escriba aqui" type="text" id="buscador">
+    <button onclick="search()">Buscar</button>
+    <button onclick="eliminarNodo()">Eliminar nodo</button>
+    <button onclick="calcularEdades()">Calcular edades</button>
+    <button onclick="agregarNodo()">Agregar nodo</button>
+    <div class="contenedor">
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>
