@@ -80,6 +80,9 @@ turnito.mostrarTurnosDisponibles();
 const paciente1 = new Paciente();
 paciente1.nombre = prompt("Ingrese su nombre");
 paciente1.edad = prompt("Ingrese su edad");
+if (isNaN(paciente1.edad)) {
+  paciente1.edad = parseInt(prompt("Error. Ingrese una edad correcta"));
+}
 paciente1.telefono = prompt("Ingrese su telefono");
 paciente1.tratamiento = prompt("Ingrese el tipo de tratamiento que desea realizarse");
 

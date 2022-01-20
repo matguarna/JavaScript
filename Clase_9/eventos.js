@@ -11,4 +11,3 @@ let button = document.getElementById("miBtn").addEventListener("click", showAler
 // let button = document.getElementById("miBtn").addEventListener("click", () => {
 //   alert("Funcion anonima");
 // });
-
