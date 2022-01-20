@@ -35,7 +35,9 @@
       //Crea nodo de tipo Elemento, etiqueta p
       let crearP = document.createElement("p");
       //Insertar HTML interno
-      parrafo.innerHTML = "<h2> soy parrafoo!</h2>";
+      parrafo.innerHTML = `<h2> soy parrafo con un form</h2>
+      <form><input type="date"></input>
+        <input type="submit"></input></form>`;
       //Añadir el nodo Element como hijo de body
       document.body.appendChild(parrafo);
       //
