@@ -5,17 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .class-parrafo {
+        color: red;
+      }
+    </style>
   </head>
   <body>
     <h1>Bienvenidos</h1>
-    <p>
+    <p class="class-parrafo" id="parrafo">
       manga de <strong>putos</strong>
-      <span>asdddddDDDdddddd</span>
+      <a href="/">Facebook</a>
+      <span>Whatsapp</span>
     </p>
+    <p id="salame">ASDSADSADASdasdsa!!jeje</p>
+    <p class="paises">paises 1!</p>
+    <p class="paises">paises 2!</p>
+
     <script>
-      console.dir(document);
-      console.dir(document.head);
-      console.dir(document.body);
+      let parrafo = document.getElementById("parrafo");
+      console.log(parrafo);
+
+      let parrafoClase = document.getElementsByClassName("class-parrafo");
+      console.log(parrafoClase);
+
+      let tag = document.getElementsByTagName("p");
+      console.log(tag);
+
+      //Crea nodo de tipo Elemento, etiqueta p
+      let crearP = document.createElement("p");
+      //Insertar HTML interno
+      parrafo.innerHTML = "<h2> soy parrafoo!</h2>";
+      //Añadir el nodo Element como hijo de body
+      document.body.appendChild(parrafo);
+      //
+      salame.innerHTML = "<p>soy salame</p>";
+      document.body.appendChild(salame);
+
+      //Remover elementos
+      salame.parentNode.removeChild(salame);
+      //Remover elemento de clases
+      let paises = document.getElementsByClassName("paises");
+      paises[0].parentNode.removeChild(paises[0]);
+
+      // console.dir(document);
+      // console.dir(document.head);
+      // console.dir(document.body);
     </script>
     <script src="dom.js"></script>
   </body>
