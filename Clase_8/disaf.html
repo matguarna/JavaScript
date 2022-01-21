@@ -21,10 +21,9 @@
     <p id="salame">ASDSADSADASdasdsa!!jeje</p>
     <p class="paises">paises 1!</p>
     <p class="paises">paises 2!</p>
-    <input id="nombre" placeholder="Nombre" type="text">
-    <input id="edad" type="number">
-    <div id="personas">
-    </div>
+    <input id="nombre" placeholder="Nombre" type="text" />
+    <input id="edad" type="number" />
+    <div id="personas"></div>
 
     <script>
       let parrafo = document.getElementById("parrafo");
@@ -64,23 +63,22 @@
       //Array con la informacion a agregar
       let personas = ["HOMERO", "MARGE", "BART", "LISA", "MAGGIE"];
       //Iteramos el array con for.. of
-      for (const persona of personas){
+      for (const persona of personas) {
         //Creamos un nodo <li> y agrtegamos al padre en cada ciclo
-          let li = document.createElement("li");
-          li.innerHTML = persona;
-          padre.appendChild(li);
+        let li = document.createElement("li");
+        li.innerHTML = persona;
+        padre.appendChild(li);
       }
 
       //Platillas literales e innerHTML
-      let producto = {id: 1, nombre: "Arroz", precio: "25"}
+      let producto = { id: 1, nombre: "Arroz", precio: "25" };
       let contenedor = document.createElement("div");
       //Definimos el innerHTML del elemento con una plantilla de texto
       contenedor.innerHTML = `<h3> ID: ${producto.id}</3>
         <p> Producto: ${producto.nombre}</p>
-          <b> $: ${producto.precio}</b>`
+          <b> $: ${producto.precio}</b>`;
       //agregamos el contenedor creado al body
       document.body.appendChild(contenedor);
-
     </script>
     <script src="dom.js"></script>
   </body>
