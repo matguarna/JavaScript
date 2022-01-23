@@ -1,21 +1,25 @@
 class Turnos {
-  constructor(fecha, hora, profesionalTurno) {
+  constructor(fecha, hora, profesionalTurno, listaTurnos) {
     this.fecha = fecha;
     this.hora = hora;
     this.profesionalTurno = profesionalTurno;
+    this.listaTurnos = listaTurnos;
+
   }
+  // addTurno(turno) {
+  //   this.listaTurnos.push(turno);
+  // }
 }
 
-const turno1 = new Turnos((fecha = "10/01/2022"), (hora = "12:00"), (profesionalTurno = ""));
-const turno2 = { fecha: "10/01/2022", hora: "13:00", profesionalTurno: "" };
-const turno3 = { fecha: "11/01/2022", hora: "15:00", profesionalTurno: "" };
-const turno4 = { fecha: "14/01/2022", hora: "12:00", profesionalTurno: "" };
-const turno5 = { fecha: "17/01/2022", hora: "11:00", profesionalTurno: "" };
-const turno6 = { fecha: "20/01/2022", hora: "18:00", profesionalTurno: "" };
+const turno1 = new Turnos("10/01/2022", "12:00", "");
+const turno2 = new Turnos("12/01/2022", "13:00", "");
+const turno3 = new Turnos("13/01/2022", "14:00", "");
+const turno4 = new Turnos("20/01/2022", "16:00", "");
+const turno5 = new Turnos("09/02/2022", "17:00", "");
+const turno6 = new Turnos("10/02/2022", "18:00", "");
+
 const listaTurnos = [];
 listaTurnos.push(turno1, turno2, turno3, turno4, turno5, turno6);
-
-console.log(turno1);
 
 const mostrarTurnosDisponibles = () => {
   let turnis = document.getElementById("turnosForm");
