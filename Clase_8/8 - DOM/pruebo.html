@@ -7,13 +7,14 @@
     <title>Document</title>
   </head>
   <body>
+    <div class="prueba"></div>
     <div>
-      <button>Solicitar un turno</button>
+      <form></form>
       <form id="turnosForm">
-          <input type="text" placeholder="Nombre">
-          <input type="number" placeholder="Telefono">
-          <button onclick="mostrarTurnosDisponibles()">Ver turnos disponibles</button>
-        </form>
+        <button type="button" id="stopButton1" onclick="solicitarTurno()">Solicitar un turno</button>
+
+        <button type="button" id="stopButton2" onclick="mostrarTurnosDisponibles()">Ver turnos disponibles</button>
+      </form>
     </div>
     <script src="pruebo.js"></script>
   </body>
