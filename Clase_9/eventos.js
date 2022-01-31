@@ -39,3 +39,17 @@ buttonMouse.onmouseout = () => {
 };
 
 //Eventos del teclado
+let buttonMouse = document.getElementById("miBtnMouse");
+buttonMouse.onmouseover = () => {
+  buttonMouse.style.background = "green";
+  buttonMouse.style.fontSize = "25px";
+  buttonMouse.textContent = "Tas arriba";
+};
+
+buttonMouse.onmouseout = () => {
+  buttonMouse.style.background = "white";
+  buttonMouse.style.fontSize = "16px";
+  buttonMouse.textContent = "ya moviste";
+  buttonMouse.style.borderRadius = "20%";
+  buttonMouse.style.fontFamily = "Verdana";
+};
