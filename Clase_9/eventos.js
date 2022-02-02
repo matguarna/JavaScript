@@ -65,3 +65,21 @@ form2.onsubmit = (e) => {
 };
 
 //
+let divv = document.getElementById("div1");
+let textodiv = document.createElement("p");
+textodiv.textContent = "Textito del div";
+divv.appendChild(textodiv);
+
+//
+window.addEventListener("resize", () => {
+  console.log("resize");
+});
+
+window.addEventListener("scroll", () => {
+  console.log("scroll");
+});
+
+//Cuando se termina de cargar la ventana, cuando carga todo.
+window.addEventListener("load", () => {
+  console.log("load");
+});
