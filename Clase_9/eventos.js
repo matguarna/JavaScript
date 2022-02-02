@@ -39,3 +39,6 @@ buttonMouse.onmouseout = () => {
 };
 
 //Eventos del teclado
+//Evento change
+
+//Evento Submit
