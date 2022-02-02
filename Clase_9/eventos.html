@@ -7,9 +7,17 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" placeholder="escribi algo" onchange="showInputValue(value)" />
-    <button id="miBtn">Mostrar Alert</button>
-    <button id="miBtnMouse">Veni movela</button>
+    <form id="miForm">
+      <input type="text" placeholder="onchange" id="miInput" />
+
+      <input type="text" placeholder="escribi algo" onchange="showInputValue(value)" />
+      <button id="miBtn">Mostrar Alert</button>
+      <button id="miBtnMouse">Veni movela</button>
+    </form>
+    <form id="miForm2">
+      <input type="text" placeholder="algo" id="miInput2" />
+      <input type="submit" id="miSubmit" value="Enviar"/>
+    </form>
     <script src="eventos.js"></script>
   </body>
 </html>

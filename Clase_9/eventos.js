@@ -40,5 +40,28 @@ buttonMouse.onmouseout = () => {
 
 //Eventos del teclado
 //Evento change
+let input = document.getElementById("miInput");
+
+input.onchange = (e) => {
+  if (e.target.value.length < 10) {
+    let form = document.getElementById("miForm");
+    let texto = document.createElement("p");
+    texto.textContent = "Llenar todos los campos";
+    texto.id = "error";
+    form.appendChild(texto);
+  } else {
+    let form = document.getElementById("miForm");
+    let texto = document.getElementById("error");
+    form.appendChild(texto);
+  }
+  console.log("onchange--- ", e.target.value);
+};
 
 //Evento Submit
+let form2 = document.getElementById("miForm2");
+form2.onsubmit = (e) => {
+  e.preventDefault();
+  alert("Enviando informacion");
+};
+
+//
