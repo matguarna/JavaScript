@@ -57,17 +57,32 @@ const mostrarTurnosDisponibles = () => {
   document.getElementById("stopButton2").disabled = true;
 };
 
+//Valida los datos ingresdos para iniciar sesion
 const ingresarUsuario = () => {
   let adm = document.getElementById("formAdmin");
-  //let usr = document.getElementById("userId");
+  let usr = document.getElementById("userId");
+  let pwd = document.getElementById("passwdId");
   adm.onsubmit = (e) => {
     e.preventDefault();
-    //   if (usr == admin) {
-    //     alert("ok");
-    //   } else {
-    //     alert("nope");
-    //   }
+    if (usr.value == "admin" && pwd.value == "admin") {
+      let logOk = document.createElement("p");
+      logOk.textContent = "Ingresaste ok";
+      adm.appendChild(logOk);
+      //Guarda en el sessionStorage los datos del usuario ingresado correctamente
+      sessionStorage.setItem("user", usr.value);
+      sessionStorage.setItem("passwd", pwd.value);
+    } else if (usr.value == "" && pwd.value == "") {
+      let failLogin = document.createElement("p");
+      failLogin.textContent = "Ingrese usuario y contraseña";
+      adm.appendChild(failLogin);
+    } else if (usr.value != "admin") {
+      let failUser = document.createElement("p");
+      failUser.textContent = "Usuario incorrecto";
+      adm.appendChild(failUser);
+    } else {
+      let failPwd = document.createElement("p");
+      failPwd.textContent = "Contraseña incorrecta";
+      adm.appendChild(failPwd);
+    }
   };
 };
-localStorage.setItem("user", "admin");
-localStorage.setItem("passwd", "admin");
