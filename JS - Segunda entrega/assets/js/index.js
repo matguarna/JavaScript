@@ -11,6 +11,7 @@ class Turnos {
   // }
 }
 
+//Turnos disponibles
 const turno1 = new Turnos("10/01/2022", "12:00", "");
 const turno2 = new Turnos("12/01/2022", "13:00", "");
 const turno3 = new Turnos("13/01/2022", "14:00", "");
@@ -18,8 +19,19 @@ const turno4 = new Turnos("20/01/2022", "16:00", "");
 const turno5 = new Turnos("09/02/2022", "17:00", "");
 const turno6 = new Turnos("10/02/2022", "18:00", "");
 
+//Turnos asignados
+const turno7 = new Turnos("10/01/2022", "15:00", "Majo");
+const turno8 = new Turnos("15/01/2022", "12:00", "Aye");
+const turno9 = new Turnos("14/01/2022", "17:00", "Lucas");
+const turno10 = new Turnos("12/01/2022", "18:00", "Majo");
+const turno11 = new Turnos("18/01/2022", "19:00", "Aye");
+const turno12 = new Turnos("16/01/2022", "11:00", "Lucas");
+
 const listaTurnos = [];
 listaTurnos.push(turno1, turno2, turno3, turno4, turno5, turno6);
+
+const listaTurnosAsignados = [];
+listaTurnosAsignados.push(turno7, turno8, turno9, turno10, turno11, turno12);
 
 //Funcion para solicitar turnos, despliega un formulario para completar por el cliente.
 const solicitarTurno = () => {
@@ -66,11 +78,12 @@ const ingresarUsuario = () => {
     e.preventDefault();
     if (usr.value == "admin" && pwd.value == "admin") {
       let logOk = document.createElement("p");
-      logOk.textContent = "Ingresaste ok";
+      logOk.textContent = "Bienvenido";
       adm.appendChild(logOk);
       //Guarda en el sessionStorage los datos del usuario ingresado correctamente
       sessionStorage.setItem("user", usr.value);
       sessionStorage.setItem("passwd", pwd.value);
+      buscarTurnos();
     } else if (usr.value == "" && pwd.value == "") {
       let failLogin = document.createElement("p");
       failLogin.textContent = "Ingrese usuario y contraseña";
@@ -85,4 +98,33 @@ const ingresarUsuario = () => {
       adm.appendChild(failPwd);
     }
   };
+};
+
+const buscarTurnos = () => {
+  let getLog = document.getElementById("logIn-div");
+  let divLogi = document.createElement("div");
+  divLogi.innerHTML = `<p>Buscar turnos por profesional</p> 
+<input type="text" placeholder="Profesional" id="searchProf" required/><input type="submit" value="Buscar" />`;
+  getLog.appendChild(divLogi);
+
+  const turnosOrdenadosFecha = listaTurnosAsignados.sort((a, b) => {
+    if (a.fecha > b.fecha) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+  console.log(turnosOrdenadosFecha);
+  const turnosOrdenadosHora = turnosOrdenadosFecha.sort((a, b) => {
+    if (a.hora > b.hora) {
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+  //console.log(turnosOrdenadosHora);
+};
+
+const mostrarTurnosAsignados = () => {
+  let busquedaProf = querySelector("#searchProf");
 };
