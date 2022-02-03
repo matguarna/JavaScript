@@ -1,0 +1,12 @@
+.separador {
+    width: 50%;
+    height: 30px;
+    margin: 10px;
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    text-align: left;
+    border-style: solid;
+    border-color: grey;
+}
+
