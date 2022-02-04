@@ -114,7 +114,7 @@ const buscarTurnos = () => {
       return -1;
     }
   });
-  console.log(turnosOrdenadosFecha);
+  //console.log(turnosOrdenadosFecha);
   const turnosOrdenadosHora = turnosOrdenadosFecha.sort((a, b) => {
     if (a.hora > b.hora) {
       return 1;
