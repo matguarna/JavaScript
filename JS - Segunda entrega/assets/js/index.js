@@ -23,9 +23,9 @@ const turno6 = new Turnos("10/02/2022", "18:00", "");
 const turno7 = new Turnos("10/01/2022", "15:00", "Majo");
 const turno8 = new Turnos("15/01/2022", "12:00", "Aye");
 const turno9 = new Turnos("14/01/2022", "17:00", "Lucas");
-const turno10 = new Turnos("12/01/2022", "18:00", "Majo");
+const turno10 = new Turnos("10/01/2022", "18:00", "Majo");
 const turno11 = new Turnos("18/01/2022", "19:00", "Aye");
-const turno12 = new Turnos("16/01/2022", "11:00", "Lucas");
+const turno12 = new Turnos("10/01/2022", "11:00", "Lucas");
 
 const listaTurnos = [];
 listaTurnos.push(turno1, turno2, turno3, turno4, turno5, turno6);
@@ -103,10 +103,14 @@ const ingresarUsuario = () => {
 const buscarTurnos = () => {
   let getLog = document.getElementById("logIn-div");
   let divLogi = document.createElement("div");
-  divLogi.innerHTML = `<p>Buscar turnos por profesional</p> 
-<input type="text" placeholder="Profesional" id="searchProf" required/><input type="submit" value="Buscar" />`;
+  divLogi.innerHTML = `<input type="submit" id="submitAsignados" value="Ver turnos asignados" onclick="mostrarTurnosAsignados()" />
+  <p>Buscar turnos por profesional</p> 
+<input type="text" placeholder="Profesional" id="searchProf" required/><input type="submit" id="submitLog" value="Buscar" onclick="buscarProf()"  />`;
   getLog.appendChild(divLogi);
+  divLogi.id = "divLogiId";
+};
 
+const mostrarTurnosAsignados = () => {
   const turnosOrdenadosFecha = listaTurnosAsignados.sort((a, b) => {
     if (a.fecha > b.fecha) {
       return 1;
@@ -114,17 +118,26 @@ const buscarTurnos = () => {
       return -1;
     }
   });
-  //console.log(turnosOrdenadosFecha);
-  const turnosOrdenadosHora = turnosOrdenadosFecha.sort((a, b) => {
-    if (a.hora > b.hora) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
-  //console.log(turnosOrdenadosHora);
+  console.log(turnosOrdenadosFecha);
+  let divAsignados = document.getElementById("divLogiId");
+  let p2 = document.createElement("p");
+  p2.innerHTML = `<p>Los turnos asginados son: </p>`;
+  divAsignados.appendChild(p2);
+  for (const dato of turnosOrdenadosFecha) {
+    let li = document.createElement("li");
+    li.innerHTML = `Dia: ${dato.fecha}. Hora: ${dato.hora}. Profesional: ${dato.profesionalTurno}.`;
+    divAsignados.appendChild(li);
+  }
 };
 
-const mostrarTurnosAsignados = () => {
-  let busquedaProf = querySelector("#searchProf");
+const buscarProf = () => {
+  const traerBusqueda = document.getElementById("searchProf");
+  const logSubmit = document.getElementById("submitLog");
+  logSubmit.onclick = (e) => {
+    e.preventDefault();
+    console.log("buscarProf funciona ok");
+    if (traerBusqueda.value == Turnos.profesionalTurno) {
+      console.log("Busqueda = Majo");
+    }
+  };
 };
