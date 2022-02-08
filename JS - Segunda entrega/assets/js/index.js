@@ -136,8 +136,8 @@ const buscarProf = () => {
   logSubmit.onclick = (e) => {
     e.preventDefault();
     console.log("buscarProf funciona ok");
-    if (traerBusqueda.value == Turnos.profesionalTurno) {
-      console.log("Busqueda = Majo");
+    if (traerBusqueda.value == listaTurnosAsignados.profesionalTurno) {
+      console.log("El buscador funciona okkkkk");
     }
   };
 };
