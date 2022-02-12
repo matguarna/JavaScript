@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="StyleSheet" href="/JS - Tercer entrega/assets/css/estilo.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="separador">
+      <h3 id="h-separador">Cliente</h3>
+    </div>
+    <form id="turnosForm">
+      <button type="button" id="stopButton2" onclick="mostrarTurnosDisponibles()">Ver turnos disponibles</button>
+      <button type="button" id="stopButton1" onclick="solicitarTurno()">Solicitar un turno</button>
+    </form>
+    <div class="separador">
+      <h3 id="h-separador">Usuario</h3>
+    </div>
+    <form id="formAdmin">
+      <input type="text" id="userId" placeholder="Ingrese su usuario" />
+      <input type="password" id="passwdId" placeholder="Ingrese su contraseña" />
+      <input type="submit" id="submitAdmin" onclick="ingresarUsuario()" value="Ingresar" />
+    </form>
+    <div id="logIn-div"></div>
+    <script src="/JS - Tercer entrega/assets/js/index.js"></script>
+  </body>
+</html>
