@@ -31,6 +31,9 @@ const toggleLoader = () => {
   $("#loader").toggle();
 };
 
+$("#loader").hide();
+$("#loader").show();
+
 const initWebsite = () => {
   setTimeout(() => {
     $(document).ready(function (event) {
@@ -39,9 +42,30 @@ const initWebsite = () => {
       lista.map((v, idx) => {
         createElement("#lista", `<li class="li-${idx}" >${v.name}</li>`);
       });
-      //toggleLoader();
+      toggleLoader();
     });
   }, 2000); //Temporizador, luego de 2 segundos ejecuta el codigo y aparece la lista.
 };
 
 initWebsite();
+//////////////////////////////////////////////
+const listaTemportal = [];
+
+const initWebsite2 = () => {
+  setTimeout(() => {
+    $(document).ready(function (event) {
+      console.log("Ready");
+      createElement("#app", `<ul id="lista"></ul>`);
+      lista.map((v, idx) => {
+        createElement("#lista", `<li class="li-${idx}" ><button id="button-${idx}">${v.name}</button></li>`);
+        $(`#button-${idx}`).click(function (e) {
+          e.preventDefault();
+          console.log(v.name);
+        });
+      });
+      toggleLoader();
+    });
+  }, 2000); //Temporizador, luego de 2 segundos ejecuta el codigo y aparece la lista.
+};
+
+initWebsite2();
