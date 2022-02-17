@@ -1,12 +1,30 @@
+window.addEventListener("DOMContentLoaded",() =>{
+  console.log("DOM READY by JavaScript");
+})
+
+$(document).ready(() => {
+  console.log("DOM READY By jQuery");
+});
+
+$(document).ready(function () {
+  console.log("Jquery ready");
+});
+
+$(function () {
+  console.log("DOM READY3")
+});
+
+$(()=>{
+  console.log("DOM READY CORTITO");
+});
+
 let app = document.getElementById("app");
 console.log(app);
 
 let puto = $("#app");
 console.log(puto);
 
-$(document).ready(function () {
-  console.log("Jquery ready");
-});
+
 
 $("li");
 
@@ -58,6 +76,7 @@ const addValueToList = (value) => {
     return v.name == value.name;
   });
   if (findValue) {
+    //si findValue tiene el valor de v
     alert("Valor ya existe en la lista");
   } else {
     listaTemportal.push(value);
@@ -84,3 +103,13 @@ const initWebsite2 = () => {
 };
 
 initWebsite2();
+
+//Hace que desaparezca despues de 3 segundos el botton 2
+setTimeout(() => {
+  $("#button-2").fadeOut();
+}, 3000);
+
+//Hace que aparezca luego de 5 segundos el botton 2
+setTimeout(() => {
+  $("#button-2").fadeIn();
+}, 5000);
