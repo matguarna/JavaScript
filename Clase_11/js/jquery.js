@@ -51,6 +51,20 @@ initWebsite();
 //////////////////////////////////////////////
 const listaTemportal = [];
 
+//Evalua si un valor existe en una lista, si existe avisa, y si no existe lo agrega
+const addValueToList = (value) => {
+  console.log(value);
+  let findValue = listaTemportal.find((v) => {
+    return v.name == value.name;
+  });
+  if (findValue) {
+    alert("Valor ya existe en la lista");
+  } else {
+    listaTemportal.push(value);
+  }
+  console.log(listaTemportal);
+};
+
 const initWebsite2 = () => {
   setTimeout(() => {
     $(document).ready(function (event) {
@@ -61,6 +75,7 @@ const initWebsite2 = () => {
         $(`#button-${idx}`).click(function (e) {
           e.preventDefault();
           console.log(v.name);
+          addValueToList(v);
         });
       });
       toggleLoader();
