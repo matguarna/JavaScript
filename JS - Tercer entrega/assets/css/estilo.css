@@ -1,12 +1,21 @@
 .separador {
-    width: 50%;
-    height: 30px;
-    margin: 10px;
-    padding: 10px;
-    background-color: black;
-    color: #fff;
-    text-align: left;
-    border-style: solid;
-    border-color: grey;
+  width: 50%;
+  height: 30px;
+  margin: 10px;
+  padding: 10px;
+  background-color: black;
+  color: #fff;
+  text-align: left;
+  border-style: solid;
+  border-color: grey;
 }
 
+#divLogiId {
+  background-color: rgba(128, 128, 128, 0.253);
+  border: 1px black solid;
+}
+
+#prueba2 {
+  background-color: rgba(128, 128, 128, 0.61);
+  border: 1px black solid;
+}

@@ -117,6 +117,7 @@ const buscarTurnos = () => {
   divLogi.id = "divLogiId";
 };
 
+//Muestra los turnos asignados y los ordena por fecha.
 const mostrarTurnosAsignados = () => {
   const turnosOrdenadosFecha = listaTurnosAsignados.sort((a, b) => {
     if (a.fecha > b.fecha) {
@@ -137,14 +138,55 @@ const mostrarTurnosAsignados = () => {
   }
 };
 
+// const buscarProf = () => {
+//   const traerBusqueda = document.getElementById("searchProf");
+//   const logSubmit = document.getElementById("submitLog");
+//   logSubmit.onclick = (e) => {
+//     e.preventDefault();
+//     console.log("buscarProf funciona ok");
+//     if (traerBusqueda.value == listaTurnosAsignados.profesionalTurno) {
+//       console.log("El buscador funciona okkkkk");
+//     }
+//   };
+// };
+
+//Funcion que agrega con jquery un elemento
+const createElement = (selector, html) => {
+  $(selector).append(html);
+};
+
 const buscarProf = () => {
+  //Trae al input donde busca el profesional
   const traerBusqueda = document.getElementById("searchProf");
-  const logSubmit = document.getElementById("submitLog");
-  logSubmit.onclick = (e) => {
+  //Trae el mismo div donde se encuentra el buscador de profesional
+  let divAsignados2 = document.getElementById("divLogiId");
+
+  $("#submitLog").click((e) => {
     e.preventDefault();
     console.log("buscarProf funciona ok");
-    if (traerBusqueda.value == listaTurnosAsignados.profesionalTurno) {
-      console.log("El buscador funciona okkkkk");
+    switch (traerBusqueda.value) {
+      case "Majo":
+        //let divAsignados = document.getElementById("divLogiId");
+        let p3 = document.createElement("p");
+        p3.innerHTML = `<p>Los turnos asginados para Majo son: </p>`;
+        divAsignados2.appendChild(p3);
+        const turnosFiltradosProf = listaTurnosAsignados.filter((e) => e.profesionalTurno == "Majo");
+        //console.log(`switch majo funca ok`);
+        for (const dato of turnosFiltradosProf) {
+          let li = document.createElement("li");
+          li.innerHTML = `Dia: ${dato.fecha}. Hora: ${dato.hora}.`;
+          divAsignados2.appendChild(li);
+        }
+        break;
+      case "Aye":
+        console.log(`${suich} es salame`);
+        break;
+      case "Lucas":
+        console.log(`${suich} es juan`);
+        break;
+      default:
+        console.log("Prof. no encotrado");
+        break;
     }
-  };
+  });
 };

@@ -1,6 +1,6 @@
-window.addEventListener("DOMContentLoaded",() =>{
+window.addEventListener("DOMContentLoaded", () => {
   console.log("DOM READY by JavaScript");
-})
+});
 
 $(document).ready(() => {
   console.log("DOM READY By jQuery");
@@ -11,10 +11,10 @@ $(document).ready(function () {
 });
 
 $(function () {
-  console.log("DOM READY3")
+  console.log("DOM READY3");
 });
 
-$(()=>{
+$(() => {
   console.log("DOM READY CORTITO");
 });
 
@@ -23,8 +23,6 @@ console.log(app);
 
 let puto = $("#app");
 console.log(puto);
-
-
 
 $("li");
 
@@ -113,3 +111,63 @@ setTimeout(() => {
 setTimeout(() => {
   $("#button-2").fadeIn();
 }, 5000);
+
+window.addEventListener("load", function () {
+  console.log("LOAD: Todos los elementos de la ventana estan cargados.");
+});
+
+//Crea un boton en el body
+$("body").append(`<button id="btn1">Boton de prueba</button>`);
+//Le asigna el evento click al boton creado y ejecuta el codigo dentro
+$("#btn1").on("click", function (e) {
+  e.preventDefault();
+  console.log("boton de prueba funcionando");
+});
+
+//Crea otro boton en el body
+$("body").append(`<button id="btn2">Boton de prueba 2</button>`);
+//Le asigna el evento click al boton creado y ejecuta el codigo dentro
+$("#btn2").click((e) => {
+  e.preventDefault();
+  console.log("boton de prueba 2 funca ok");
+});
+
+//Change()
+$("body").append(`<input type="text" class="inputsClass">
+<input type="text" class="inputsClass">
+<select class="inputsClass">
+<option value="1" selected >ID 1</option>
+<option value="2"> ID 2</option>
+<option value="3"> ID 3</option>
+</select>
+<button type="submit" value="submit" id="subm2">Submittt</button>`);
+
+$("inputsClass").change(function (e) {
+  console.log(e.target.value);
+  console.log(this.value);
+});
+
+//submit
+$("#subm2").submit((e) => {
+  e.preventDefault();
+  console.log("funciona el submi");
+});
+
+//Trigger()
+//agregamos un boton y un input
+$("body").append(`<button id="btnbtn1">Button1</button>`)
+$("body").append(`<input id="ipt1" type="text">`)
+
+//asociamos el evento change al ipt1
+$("#ipt1").change((e)=>{
+  console.log("El valor es " + e.target.value);
+});
+
+//Asociamos el evento click para btn1 y usamos trigger
+$("btnbtn1").click(()=>{
+  //usamos trigger para disparar el eventoi change de ipt1
+  $("#ipt1").trigger("change");
+});
+
+
+
