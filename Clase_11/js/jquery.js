@@ -155,19 +155,21 @@ $("#subm2").submit((e) => {
 
 //Trigger()
 //agregamos un boton y un input
-$("body").append(`<button id="btnbtn1">Button1</button>`)
-$("body").append(`<input id="ipt1" type="text">`)
+$("body").append(`<button id="btnbtn1">Button1</button>`);
+$("body").append(`<input id="ipt1" type="text">`);
 
 //asociamos el evento change al ipt1
-$("#ipt1").change((e)=>{
+$("#ipt1").change((e) => {
   console.log("El valor es " + e.target.value);
 });
 
 //Asociamos el evento click para btn1 y usamos trigger
-$("btnbtn1").click(()=>{
+$("btnbtn1").click(() => {
   //usamos trigger para disparar el eventoi change de ipt1
   $("#ipt1").trigger("change");
 });
 
-
+//show()
+$("body").append(`<h3 style="display:none">Probando el showww</h3>`);
+$("h3").show();
 
