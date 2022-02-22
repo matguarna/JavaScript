@@ -173,3 +173,35 @@ $("btnbtn1").click(() => {
 $("body").append(`<h3 style="display:none">Probando el showww</h3>`);
 $("h3").show();
 
+//hide()
+$("body").append(`<h2 style="display:flex">Probando el hide</h2>`);
+$("h2").hide();
+
+//fadeIn()
+$("body").append(`<h4 style="display:none">Probando FADE INNNN</h4>`);
+$("h4").fadeIn();
+
+//fadeOut()
+$("body").append(`<h5 >Probando FADEouttt </h5>`);
+$("h5").fadeOut();
+
+//Btn fade
+$("body").append(`<h1 style="display:none" id="h1Fade">BOTONCITO FADE</h1>`);
+
+$(document).ready(function () {
+  $("#btnFade").click(() => {
+    $("#h1Fade").fadeIn("slow");
+    // setTimeout(() => {
+    //   $("#h1Fade").fadeIn();
+    // }, 3000);
+  });
+});
+
+$(document).ready(function () {
+  $("#btnFade").click(() => {
+    //$("#h1Fade").fadeOut("slow");
+    setTimeout(() => {
+      $("#h1Fade").fadeOut();
+    }, 1500);
+  });
+});
