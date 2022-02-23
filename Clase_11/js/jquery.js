@@ -171,7 +171,7 @@ $("btnbtn1").click(() => {
 
 //show()
 $("body").append(`<h3 style="display:none">Probando el showww</h3>`);
-$("h3").show();
+//$("h3").show();
 
 //hide()
 $("body").append(`<h2 style="display:flex">Probando el hide</h2>`);
@@ -179,7 +179,7 @@ $("h2").hide();
 
 //fadeIn()
 $("body").append(`<h4 style="display:none">Probando FADE INNNN</h4>`);
-$("h4").fadeIn();
+//$("h4").fadeIn();
 
 //fadeOut()
 $("body").append(`<h5 >Probando FADEouttt </h5>`);
@@ -187,7 +187,7 @@ $("h5").fadeOut();
 
 //Btn fade
 $("body").append(`<h1 style="display:none" id="h1Fade">BOTONCITO FADE</h1>`);
-
+//Con el boton FADE gris aparece el titulo h1
 $(document).ready(function () {
   $("#btnFade").click(() => {
     $("#h1Fade").fadeIn("slow");
@@ -197,6 +197,7 @@ $(document).ready(function () {
   });
 });
 
+//Con el boton FADE gris desaparece el titulo h1
 $(document).ready(function () {
   $("#btnFade").click(() => {
     //$("#h1Fade").fadeOut("slow");
@@ -204,4 +205,55 @@ $(document).ready(function () {
       $("#h1Fade").fadeOut();
     }, 1500);
   });
+});
+
+//slideDown() y slideUp()
+//Agregamos un boton y un div con jquery. iGUAL que fadeIn, debe ser display:none
+$("body").append(`<button id="btnSlide">Mostrar Slide Down</button>`);
+$("body").append(`<div id="div1" style="height: 120px; display:none"
+<h3>Hola put0s</h3>
+<h4>Sorpresa 2</h4>
+</div>`);
+//Usamos slideDown() sobre div1 en respuesta al click del boton btnSlide
+// $("#btnSlide").click(() => {
+//   $("#div1").slideDown("slow");
+// });
+
+//slideToggle()
+$("#btnSlide").click(() => {
+  $("#div1").slideToggle("slow");
+});
+
+//
+const usuario = {
+  username: "matias",
+  password: "admin",
+};
+
+$(document).ready(function () {
+  $("#usernameId").change(function (e) {
+    e.preventDefault();
+    if (e.target.value !== usuario.username) {
+      $("#usernameError").show(); //muestra el mensaje
+    } else {
+      $("#usernameError").hide(); //oculta el mensaje
+    }
+  });
+
+  $("#passwordId").change(function (e) {
+    e.preventDefault();
+    if (e.target.value !== usuario.password) {
+      $("#passwordError").show(); //muestra el mensaje
+    } else {
+      $("#passwordError").hide(); //oculta el mensaje
+    }
+  });
+});
+
+//CSS con jquery
+$("#holaMundo").css("color", "red");
+
+$("#divCss").css({
+  "background-color": "green",
+  border: "5px solid #ccc",
 });
