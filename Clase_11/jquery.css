@@ -25,3 +25,17 @@
 #passwordError {
   display: none;
 }
+
+#divAnimate {
+  background-color: orange;
+  width: 150px;
+  height: 150px;
+  position: absolute;
+}
+
+#divEncadenados {
+  background-color: pink;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+}

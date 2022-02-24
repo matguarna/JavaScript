@@ -257,3 +257,86 @@ $("#divCss").css({
   "background-color": "green",
   border: "5px solid #ccc",
 });
+
+//animate()
+$("body").append(`<p class="tituloAnimate" >Probando ANIMATE</p>`);
+//Animamos sus propiedades css con animate
+$(".tituloAnimate").animate(
+  {
+    left: "250px",
+    opacity: "0.5",
+    height: "150px",
+    width: "150px",
+  }, //1er parametro propiedades
+  "slow", //2do parametro duracion
+  function () {
+    //3er parametro callback
+    console.log("final de animacion");
+  }
+);
+
+//Otro ejemplo
+$("body").append(`<button id="botonAnimate">Boton Animate</button>`);
+$("body").append(`<div id="divAnimate"></div>`);
+//La estructura del animate es la siguiente: animate(Objeto de Estilo, velocidad, funcion)
+$("#botonAnimate").click(() => {
+  $("#divAnimate").animate(
+    {
+      left: "250px",
+      opacity: "0.5",
+      height: "250px",
+      width: "250px",
+    },
+    "slow",
+    function () {
+      console.log("animate funciona ok");
+    }
+  );
+});
+
+//Encadenar animaciones
+$("body").prepend(`<p id="encadenarAnim">Probando encadenar animACIONEEES</p>`);
+$("#encadenarAnim").css("color", "red");
+$("#encadenarAnim").slideUp(1500);
+$("#encadenarAnim").delay(1500);
+$("#encadenarAnim").slideDown(1500);
+
+//otro ejemplo
+$("body").append(`<button id="botonEncadenados">Boton Encadenados</button>`);
+$("body").append(`<div id="divEncadenados"></div>`);
+//La estructura del animate es la siguiente: animate(Objeto de Estilo, velocidad, funcion)
+$("#botonEncadenados").click(() => {
+  let containerA = $("#divEncadenados");
+  containerA.animate(
+    {
+      opacity: "0.3",
+      height: "300px",
+      width: "300px",
+    },
+    1000
+  );
+  containerA.animate(
+    {
+      opacity: "1",
+      height: "100px",
+      width: "100px",
+    },
+    1000
+  );
+  containerA.animate(
+    {
+      opacity: "0.3",
+      height: "300px",
+      width: "300px",
+    },
+    1000
+  );
+  containerA.animate(
+    {
+      opacity: "1",
+      height: "100px",
+      width: "100px",
+    },
+    1000
+  );
+});
