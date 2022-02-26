@@ -340,3 +340,44 @@ $("#botonEncadenados").click(() => {
     1000
   );
 });
+
+//AJAX con jquery
+// $.ajax({
+//   type: "method",
+//   url: "url",
+//   data: "data",
+//   dataType: "dataType",
+//   success: function (response) {},
+// });
+
+// $.ajax("https://pokeapi.co/api/v2/pokemon/ditto", (value) => {
+//   console.log(value);
+// });
+
+$.ajax({
+  type: "GET",
+  url: "https://pokeapi.co/api/v2/pokemon/ditto",
+  success: function (response) {
+    console.log(response);
+  },
+});
+
+$.ajax({
+  type: "POST",
+  url: "https://jsonplaceholder.typicode.com/posts",
+  data: { nombre: "matias", profesion: "laburante" },
+  success: function (response) {
+    console.log(response);
+  },
+});
+
+//fetch
+// fetch(
+//   {
+//     method: "GET",
+//     url: "https://pokeapi.co/api/v2/pokemon/ditto",
+//   },
+//   () => {
+//     console.log(e);
+//   }
+// );
