@@ -69,53 +69,76 @@ const mostrarTurnosDisponibles = () => {
   document.getElementById("stopButton2").disabled = true;
 };
 
+//PANEL USUARIO
+const usuario = {
+  username: "admin",
+  password: "admin",
+};
+let userOk;
+let passOk;
+$(document).ready(function () {
+  $("#usernameId").change(function (e) {
+    e.preventDefault();
+    if (e.target.value !== usuario.username) {
+      $("#usernameError").show(); //muestra el mensaje
+      userOk = false;
+    } else {
+      $("#usernameError").hide(); //oculta el mensaje
+      sessionStorage.setItem("user", usuario.username);
+      userOk = true;
+    }
+  });
+  $("#passwordId").change(function (e) {
+    e.preventDefault();
+    if (e.target.value !== usuario.password) {
+      $("#passwordError").show(); //muestra el mensaje
+      passOk = false;
+    } else {
+      $("#passwordError").hide(); //oculta el mensaje
+      sessionStorage.setItem("pwd", usuario.password);
+      passOk = true;
+    }
+  });
+});
+
 //Valida los datos ingresdos para iniciar sesion
 const ingresarUsuario = () => {
   let adm = document.getElementById("formAdmin");
-  let usr = document.getElementById("userId");
-  let pwd = document.getElementById("passwdId");
-  let pForm = document.createElement("p");
-  //pForm.textContent = " ";
-  pForm.id = "logId";
-  let logidid = document.getElementById("logId");
-
   adm.onsubmit = (e) => {
     e.preventDefault();
-    //logidid.textContent = "asd ";
-    //pForm.textContent = "asd ";
-    //let garbage = adm.removeChild(logidid);
-    if (usr.value == "admin" && pwd.value == "admin") {
-      pForm.textContent = "Bienvenido";
-      adm.appendChild(pForm);
-      //Guarda en el sessionStorage los datos del usuario ingresado correctamente
-      sessionStorage.setItem("user", usr.value);
-      sessionStorage.setItem("passwd", pwd.value);
+    if (userOk && passOk == true) {
+      $("#formAdmin").append(`<p id="pAdmin" style="display:none">Bienvenido ${usuario.username}!</p>`);
+      $("#pAdmin").css("font-size", "22px");
+      $("#pAdmin").css("text-align", "center");
+      $("#pAdmin").fadeIn("slow");
       buscarTurnos();
-    } else if (usr.value == "" && pwd.value == "") {
-      //let failLogin = document.createElement("p");
-      pForm.textContent = "Ingrese usuario y contraseña";
-      adm.appendChild(pForm);
-    } else if (usr.value != "admin") {
-      //let failUser = document.createElement("p");
-      pForm.textContent = "Usuario incorrecto";
-      adm.appendChild(pForm);
-    } else {
-      //let failPwd = document.createElement("p");
-      pForm.textContent = "Contraseña incorrecta";
-      adm.appendChild(pForm);
     }
   };
 };
 
 const buscarTurnos = () => {
-  let getLog = document.getElementById("logIn-div");
-  let divLogi = document.createElement("div");
-  divLogi.innerHTML = `<input type="submit" id="submitAsignados" value="Ver turnos asignados" onclick="mostrarTurnosAsignados()" />
-  <p>Buscar turnos por profesional</p> 
-<input type="text" placeholder="Profesional" id="searchProf" required/><input type="submit" id="submitLog" value="Buscar" onclick="buscarProf()"  />`;
-  getLog.appendChild(divLogi);
-  divLogi.id = "divLogiId";
+  //   let getLog = document.getElementById("logIn-div");
+  //   let divLogi = document.createElement("div");
+  //   divLogi.innerHTML = `<input type="submit" id="submitAsignados" value="Ver turnos asignados" onclick="mostrarTurnosAsignados()" />
+  //   <p>Buscar turnos por profesional</p>
+  // <input type="text" placeholder="Profesional" id="searchProf" required/><input type="submit" id="submitLog" value="Buscar" onclick="buscarProf()"  />`;
+  //   getLog.appendChild(divLogi);
+  //   divLogi.id = "divLogiId";
+  $("#logIn-div")
+    .append(`<div id="divLogiId"><input type="submit" id="submitAsignados" value="Ver turnos asignados" onclick="mostrarTurnosAsignados()" />
+<p>Buscar turnos por profesional</p>
+<select class="inputsClass">
+<option value="1" selected >Majo</option>
+<option value="2"> Aye</option>
+<option value="3"> Lucas</option>
+</select>
+<input type="text" placeholder="Profesional" id="searchProf" required/><input type="submit" id="submitLog" value="Buscar" onclick="buscarProf()"  /></div>`);
 };
+
+$("inputsClass").change(function (e) {
+  console.log(e.target.value);
+  console.log(this.value);
+});
 
 //Muestra los turnos asignados y los ordena por fecha.
 const mostrarTurnosAsignados = () => {
@@ -127,7 +150,7 @@ const mostrarTurnosAsignados = () => {
     }
   });
   console.log(turnosOrdenadosFecha);
-  let divAsignados = document.getElementById("divLogiId");
+  let divAsignados = document.getElementById("logIn-div");
   let p2 = document.createElement("p");
   p2.innerHTML = `<p>Los turnos asginados son: </p>`;
   divAsignados.appendChild(p2);

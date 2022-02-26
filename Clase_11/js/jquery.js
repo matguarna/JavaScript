@@ -365,7 +365,7 @@ $("#botonEncadenados").click(() => {
 //   },
 // });
 
-//EJEMPLO APLICADO CON JSON Y AJAX --------------------------------
+//EJEMPLO APLICADO CON JSON Y AJAX --------------
 var DATA;
 $.ajax({
   type: "GET",

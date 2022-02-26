@@ -1,5 +1,5 @@
 .separador {
-  width: 50%;
+  width: 80%;
   height: 30px;
   margin: 10px;
   padding: 10px;
@@ -20,4 +20,25 @@
   border: 1px black solid;
 }
 
-
+#divUser {
+  background-color: rgba(128, 128, 128, 0.623);
+}
+#formAdmin {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+#usernameId {
+  margin: 10px;
+  height: 30px;
+}
+#passwordId {
+  margin: 10px;
+  height: 30px;
+}
+#usernameError {
+  display: none;
+}
+#passwordError {
+  display: none;
+}
