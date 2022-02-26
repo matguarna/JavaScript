@@ -354,30 +354,50 @@ $("#botonEncadenados").click(() => {
 //   console.log(value);
 // });
 
+// var valorAjax;
+
+// $.ajax({
+//   type: "GET",
+//   url: "https://pokeapi.co/api/v2/pokemon/ditto",
+//   success: function (response) {
+//     valorAjax = response;
+//     console.log(valorAjax);
+//   },
+// });
+
+//EJEMPLO APLICADO CON JSON Y AJAX --------------------------------
+var DATA;
 $.ajax({
   type: "GET",
-  url: "https://pokeapi.co/api/v2/pokemon/ditto",
+  url: "data.json",
   success: function (response) {
-    console.log(response);
+    // let { contacto } = response;
+    DATA = response;
+    console.log(DATA.contacto);
+    console.log(`Imprimo email: ${DATA.contacto.email}`);
+    // let email = document.createElement("div");
+    // email.id = "kkk";
+    // $("#kkk").prepend(`asd`);
+    // console.log(contacto);
   },
 });
 
-$.ajax({
-  type: "POST",
-  url: "https://jsonplaceholder.typicode.com/posts",
-  data: { nombre: "matias", profesion: "laburante" },
-  success: function (response) {
-    console.log(response);
-  },
-});
+// $.ajax({
+//   type: "POST",
+//   url: "https://jsonplaceholder.typicode.com/posts",
+//   data: { nombre: "matias", profesion: "laburante" },
+//   success: function (response) {
+//     console.log(response);
+//   },
+// });
 
 //fetch
-// fetch(
-//   {
-//     method: "GET",
-//     url: "https://pokeapi.co/api/v2/pokemon/ditto",
-//   },
-//   () => {
-//     console.log(e);
-//   }
-// );
+// fetch("https://pokeapi.co/api/v2/pokemon/ditto", (e) => {
+//   console.log(e);
+// });
+var DATA2;
+fetch("data.json", (e) => {
+  //DATA2 = e;
+  console.log(e);
+  console.log(`Imprimo el FONOOOO: ${DATA2.contacto.phone}`);
+});
