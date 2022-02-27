@@ -111,7 +111,7 @@ const buscarTurnos = () => {
 <option value="Aye"> Aye</option>
 <option value="Lucas"> Lucas</option>
 </select>
-<input type="text" placeholder="Profesional" id="searchProf" required/><input type="submit" id="submitLog" value="Buscar" onclick="buscarProf()"  /></div>`);
+<input type="submit" id="submitLog" value="Buscar" onclick="buscarProf()"  /></div>`);
   $("#divLogiId").show();
 };
 
@@ -139,18 +139,6 @@ const mostrarTurnosAsignados = () => {
   $("#divTurnosA").show();
   document.getElementById("submitAsignados").disabled = true;
 };
-
-// const buscarProf = () => {
-//   const traerBusqueda = document.getElementById("searchProf");
-//   const logSubmit = document.getElementById("submitLog");
-//   logSubmit.onclick = (e) => {
-//     e.preventDefault();
-//     console.log("buscarProf funciona ok");
-//     if (traerBusqueda.value == listaTurnosAsignados.profesionalTurno) {
-//       console.log("El buscador funciona okkkkk");
-//     }
-//   };
-// };
 
 //Funcion que agrega con jquery un elemento
 const createElement = (selector, html) => {
@@ -205,31 +193,27 @@ const buscarProf = () => {
       jsonTurnos = response;
       console.log(jsonTurnos.Turnos[0].profesional); //Majo
       console.log(jsonTurnos.Turnos.length); //3
-      for (let i = 0; i < jsonTurnos.Turnos.length; i++) {
-        console.log(jsonTurnos.Turnos[i].profesional == profsec.value); //true o false segun profesional
-        let jsonVar = jsonTurnos.Turnos[i].profesional;
-      }
-
+      console.log(jsonTurnos); //Imprime el array del json. Turnos
+      const filtroP = jsonTurnos.Turnos.filter((e) => e.profesional == profsec.value);
+      console.log(filtroP);
+      //Imprime la lista filtrada por profesional
+      // for (let i = 0; i < jsonTurnos.Turnos.length; i++) {
+      //   console.log(jsonTurnos.Turnos[i].profesional == profsec.value); //true o false segun profesional
       $("#divLogiId").append(`<div id="divTurnosP" style="display:none">
       <p>Los turnos asignados para ${profsec.value} son: </p></div>`);
-      let li = document.createElement("li");
-      li.innerHTML = `Dia: ${jsonVar.fecha}. Hora: ${jsonVar.hora}. Profesional: ${jsonVar.profesional}.`;
-      $("#divTurnosP").append(li);
+      for (const dato of filtroP) {
+        let li = document.createElement("li");
+        li.innerHTML = `Dia: ${dato.fecha}. Hora: ${dato.hora}.`;
+        $("#divTurnosP").append(li);
+      }
       $("#divTurnosP").show();
+      //   //let jsonVar = jsonTurnos.Turnos[i].profesional;
+      // }
     },
   });
 
-  //let optionnn = profsec.value;
-  //console.log(optionnn);
-
-  // let profsec = document.getElementById("selectProf");
-  // let optionnn = profsec.value;
-
-  ///
   $("#submitLog").click((e) => {
     e.preventDefault();
-    let profsec = document.getElementById("selectProf");
-    let optionnn = profsec.value;
-    console.log(optionnn);
+    buscarProf();
   });
 };
