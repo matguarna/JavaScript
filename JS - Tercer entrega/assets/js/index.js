@@ -20,10 +20,10 @@ const turno5 = new Turnos("09/02/2022", "17:00", "");
 const turno6 = new Turnos("10/02/2022", "18:00", "");
 
 //Turnos asignados
-const turno7 = new Turnos("10/01/2022", "15:00", "Majo");
+const turno7 = new Turnos("10/01/2022", "18:00", "Majo");
 const turno8 = new Turnos("15/01/2022", "12:00", "Aye");
 const turno9 = new Turnos("14/01/2022", "17:00", "Lucas");
-const turno10 = new Turnos("10/01/2022", "18:00", "Majo");
+const turno10 = new Turnos("10/01/2022", "15:00", "Majo");
 const turno11 = new Turnos("18/01/2022", "19:00", "Aye");
 const turno12 = new Turnos("10/01/2022", "11:00", "Lucas");
 
@@ -102,37 +102,17 @@ $(document).ready(function () {
 });
 
 //Valida los datos ingresdos para iniciar sesion
-const ingresarUsuario = () => {
-  let adm = document.getElementById("formAdmin");
-  adm.onsubmit = (e) => {
-    e.preventDefault();
-    if (userOk && passOk == true) {
-      $("#formAdmin").append(`<p id="pAdmin" style="display:none">Bienvenido ${usuario.username}!</p>`);
-      $("#pAdmin").css("font-size", "22px");
-      $("#pAdmin").css("text-align", "center");
-      $("#pAdmin").fadeIn("slow");
-      buscarTurnos();
-    }
-  };
-};
-
 const buscarTurnos = () => {
-  //   let getLog = document.getElementById("logIn-div");
-  //   let divLogi = document.createElement("div");
-  //   divLogi.innerHTML = `<input type="submit" id="submitAsignados" value="Ver turnos asignados" onclick="mostrarTurnosAsignados()" />
-  //   <p>Buscar turnos por profesional</p>
-  // <input type="text" placeholder="Profesional" id="searchProf" required/><input type="submit" id="submitLog" value="Buscar" onclick="buscarProf()"  />`;
-  //   getLog.appendChild(divLogi);
-  //   divLogi.id = "divLogiId";
   $("#logIn-div")
-    .append(`<div id="divLogiId"><input type="submit" id="submitAsignados" value="Ver turnos asignados" onclick="mostrarTurnosAsignados()" />
+    .append(`<div id="divLogiId" style="display:none"><input type="submit" id="submitAsignados" value="Ver turnos asignados" onclick="mostrarTurnosAsignados()" />
 <p>Buscar turnos por profesional</p>
-<select class="inputsClass">
-<option value="1" selected >Majo</option>
-<option value="2"> Aye</option>
-<option value="3"> Lucas</option>
+<select class="inputsClass" id="selectProf">
+<option value="Majo" selected >Majo</option>
+<option value="Aye"> Aye</option>
+<option value="Lucas"> Lucas</option>
 </select>
 <input type="text" placeholder="Profesional" id="searchProf" required/><input type="submit" id="submitLog" value="Buscar" onclick="buscarProf()"  /></div>`);
+  $("#divLogiId").show();
 };
 
 $("inputsClass").change(function (e) {
@@ -149,16 +129,15 @@ const mostrarTurnosAsignados = () => {
       return -1;
     }
   });
-  console.log(turnosOrdenadosFecha);
-  let divAsignados = document.getElementById("logIn-div");
-  let p2 = document.createElement("p");
-  p2.innerHTML = `<p>Los turnos asginados son: </p>`;
-  divAsignados.appendChild(p2);
+  //console.log(turnosOrdenadosFecha);
   for (const dato of turnosOrdenadosFecha) {
+    $("#logIn-div").append(`<div id="divTurnosA" style="display:none"><p>Los turnos asignados son: </p></div>`);
     let li = document.createElement("li");
     li.innerHTML = `Dia: ${dato.fecha}. Hora: ${dato.hora}. Profesional: ${dato.profesionalTurno}.`;
-    divAsignados.appendChild(li);
+    $("#divTurnosA").append(li);
   }
+  $("#divTurnosA").show();
+  document.getElementById("submitAsignados").disabled = true;
 };
 
 // const buscarProf = () => {
@@ -178,38 +157,79 @@ const createElement = (selector, html) => {
   $(selector).append(html);
 };
 
-const buscarProf = () => {
-  //Trae al input donde busca el profesional
-  const traerBusqueda = document.getElementById("searchProf");
-  //Trae el mismo div donde se encuentra el buscador de profesional
-  let divAsignados2 = document.getElementById("divLogiId");
+// const buscarProf = () => {
+//   //Trae al input donde busca el profesional
+//   const traerBusqueda = document.getElementById("searchProf");
+//   //Trae el mismo div donde se encuentra el buscador de profesional
+//   let divAsignados2 = document.getElementById("divLogiId");
 
+//   $("#submitLog").click((e) => {
+//     e.preventDefault();
+//     console.log("buscarProf funciona ok");
+//     switch (traerBusqueda.value) {
+//       case "Majo":
+//         //let divAsignados = document.getElementById("divLogiId");
+//         let p3 = document.createElement("p");
+//         p3.innerHTML = `<p>Los turnos asginados para Majo son: </p>`;
+//         divAsignados2.appendChild(p3);
+//         const turnosFiltradosProf = listaTurnosAsignados.filter((e) => e.profesionalTurno == "Majo");
+//         //console.log(`switch majo funca ok`);
+//         for (const dato of turnosFiltradosProf) {
+//           let li = document.createElement("li");
+//           li.innerHTML = `Dia: ${dato.fecha}. Hora: ${dato.hora}.`;
+//           divAsignados2.appendChild(li);
+//         }
+//         break;
+//       case "Aye":
+//         console.log(`${suich} es salame`);
+//         break;
+//       case "Lucas":
+//         console.log(`${suich} es juan`);
+//         break;
+//       default:
+//         console.log("Prof. no encotrado");
+//         break;
+//     }
+//   });
+// };
+
+const buscarProf = () => {
+  var jsonTurnos;
+  let profsec = document.getElementById("selectProf");
+  console.log(profsec.value); //Imprime el select
+
+  $.ajax({
+    type: "GET",
+    url: "turnos.json",
+    success: function (response) {
+      jsonTurnos = response;
+      console.log(jsonTurnos.Turnos[0].profesional); //Majo
+      console.log(jsonTurnos.Turnos.length); //3
+      for (let i = 0; i < jsonTurnos.Turnos.length; i++) {
+        console.log(jsonTurnos.Turnos[i].profesional == profsec.value); //true o false segun profesional
+        let jsonVar = jsonTurnos.Turnos[i].profesional;
+      }
+
+      $("#divLogiId").append(`<div id="divTurnosP" style="display:none">
+      <p>Los turnos asignados para ${profsec.value} son: </p></div>`);
+      let li = document.createElement("li");
+      li.innerHTML = `Dia: ${jsonVar.fecha}. Hora: ${jsonVar.hora}. Profesional: ${jsonVar.profesional}.`;
+      $("#divTurnosP").append(li);
+      $("#divTurnosP").show();
+    },
+  });
+
+  //let optionnn = profsec.value;
+  //console.log(optionnn);
+
+  // let profsec = document.getElementById("selectProf");
+  // let optionnn = profsec.value;
+
+  ///
   $("#submitLog").click((e) => {
     e.preventDefault();
-    console.log("buscarProf funciona ok");
-    switch (traerBusqueda.value) {
-      case "Majo":
-        //let divAsignados = document.getElementById("divLogiId");
-        let p3 = document.createElement("p");
-        p3.innerHTML = `<p>Los turnos asginados para Majo son: </p>`;
-        divAsignados2.appendChild(p3);
-        const turnosFiltradosProf = listaTurnosAsignados.filter((e) => e.profesionalTurno == "Majo");
-        //console.log(`switch majo funca ok`);
-        for (const dato of turnosFiltradosProf) {
-          let li = document.createElement("li");
-          li.innerHTML = `Dia: ${dato.fecha}. Hora: ${dato.hora}.`;
-          divAsignados2.appendChild(li);
-        }
-        break;
-      case "Aye":
-        console.log(`${suich} es salame`);
-        break;
-      case "Lucas":
-        console.log(`${suich} es juan`);
-        break;
-      default:
-        console.log("Prof. no encotrado");
-        break;
-    }
+    let profsec = document.getElementById("selectProf");
+    let optionnn = profsec.value;
+    console.log(optionnn);
   });
 };

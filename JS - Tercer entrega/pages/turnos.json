@@ -1,0 +1,22 @@
+{
+  "Turnos": [
+    {
+      "fecha": "10/01/2022",
+      "hora": "12:00",
+      "profesional": "Majo",
+      "id": "1"
+    },
+    {
+      "fecha": "12/01/2022",
+      "hora": "13:00",
+      "profesional": "Aye",
+      "id": "2"
+    },
+    {
+      "fecha": "13/01/2022",
+      "hora": "14:00",
+      "profesional": "Majo",
+      "id": "3"
+    }
+  ]
+}
