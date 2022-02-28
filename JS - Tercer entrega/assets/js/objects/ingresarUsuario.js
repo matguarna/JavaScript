@@ -1,3 +1,4 @@
+
 const ingresarUsuario = () => {
   let adm = document.getElementById("formAdmin");
   adm.onsubmit = (e) => {
